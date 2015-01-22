@@ -1,2 +1,16 @@
 
 data
+
+.DS_Store
+perso/*
+feature/
+*.m~
+doc/*/*.aux
+doc/*/*.log
+doc/*/*.bbl
+doc/*/*.blg
+*.mat
+*.swp
+*.png
+*/html/*
+*.html
