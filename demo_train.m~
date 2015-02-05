@@ -1,0 +1,32 @@
+%% Training and validation
+
+
+clearvars -except data_train;
+
+if ~ exist('data_train', 'var')
+t0 = tic;
+data_train = csvread('data_train.csv',1,1);
+labels_train = csvread('labels_train.csv',1,1);
+tread = toc(t0); disp(['reading takes: ',num2str(t0),' s']);
+N = size(data_train,1);
+
+end
+
+
+%% Scattering: feature extraction
+
+x1 = data_train(1,:);
+
+
+L = length(x1);
+T = 2^12;   
+
+
+
+
+
+
+
+
+
+
