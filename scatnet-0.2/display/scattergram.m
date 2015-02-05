@@ -40,5 +40,5 @@ function img = scattergram(varargin)
 		end
 		imagesc(img{n});
     end
-    colormap gray; % avoids default jet colormap
+%     colormap gray; % avoids default jet colormap
 end
