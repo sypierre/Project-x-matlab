@@ -3,7 +3,7 @@
 
 clearvars -except X Y N;
 close all;
-if ~ exist('data_train', 'var')
+if ~ exist('X', 'var')
 t0 = tic;
 X = csvread('data_train.csv',1,1);
 Y = csvread('labels_train.csv',1,1);
@@ -18,12 +18,12 @@ end
 x1 = X(1,:)';
 
 L = length(x1);
-T = 2^7; 
+T = 2^8; 
 
 t1 = tic;
 
 filt_opt = default_filter_options('audio', T);
-[Wop, filters ] = wavelet_factory_1d(N, filt_opt);
+[Wop, filters ] = wavelet_factory_1d(L, filt_opt);
 twop = toc(t1); disp(['loading Wop takes: ',num2str(twop),' s']);
 
 
@@ -48,6 +48,9 @@ scattergram(S{2},[],S{3},j1);
 figure(3);
 plotsignals(X, Y, 1);
 %%
+
+gtzan_src
+prepare_database
 
 
 
