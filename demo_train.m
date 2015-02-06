@@ -57,6 +57,7 @@ plotsignals(X, Y, 1);
 %%
 
 % gtzan_src
+src = gtzan_src('/path/to/gtzan/dataset');
 % prepare_database
 
 
