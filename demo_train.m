@@ -15,7 +15,14 @@ end
 
 %% Scattering: feature extraction
 
-x1 = X(1,:)';
+while true
+    idxp = round( N*rand );
+    if idxp>0
+        break;
+    end
+end
+
+x1 = X(idxp,:)';
 
 L = length(x1);
 T = 2^8; 
@@ -31,7 +38,7 @@ S = scat(x1, Wop);
 
 % break;
 %% visualization
-j1 = 23;
+j1 = 0;
 figure(1);
 scattergram(S{2},[],S{3},j1);
 % break;
@@ -49,8 +56,8 @@ figure(3);
 plotsignals(X, Y, 1);
 %%
 
-gtzan_src
-prepare_database
+% gtzan_src
+% prepare_database
 
 
 
