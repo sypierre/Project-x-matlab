@@ -5,4 +5,4 @@ addpath_scatnet;
 addpath displays;
 addpath demos;
 addpath auxilary;
-
+addpath libsvm-3.20/matlab;

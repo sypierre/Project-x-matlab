@@ -33,9 +33,9 @@ filt_opt = default_filter_options('audio', T);
 [Wop, filters ] = wavelet_factory_1d(L, filt_opt);
 twop = toc(t1); disp(['loading Wop takes: ',num2str(twop),' s']);
 
-tt = tic;
+
 S = scat(x1, Wop);
-ts = toc(tt);
+
 % break;
 %% visualization
 j1 = 0;
@@ -54,18 +54,9 @@ scattergram(S{2},[],S{3},j1);
 %% opt setting 
 figure(3);
 plotsignals(X, Y, 1);
-%% database building
+%%
 
-featurefun = @(x)(format_scat( ...
-    log_scat(renorm_scat(scat(x, Wop)))));
-
-dsrc = create_dreemsrc(Y(1:1000));
-
-database_options.feature_sampling = 1;
-
-dreemdb = prepare_dreemdb(dsrc, featurefun,X(1:1000,:), database_options);
-
-
+src = create_dreemsrc(Y);
 
 
 
