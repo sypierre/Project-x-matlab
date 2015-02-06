@@ -57,13 +57,25 @@ plotsignals(X, Y, 1);
 %%
 
 % gtzan_src
-src = gtzan_src('/path/to/gtzan/dataset');
+src = gtzan_src('./data/music');
 % prepare_database
+N = 5*2^17;
+T = 8192;
+ 
+filt_opt.Q = [8 1];
+filt_opt.J = T_to_J(T, filt_opt);
+ 
+scat_opt.M = 2;
+ 
+Wopg = wavelet_factory_1d(N, filt_opt, scat_opt);
+ 
+feature_fun = @(x)(format_scat( ...
+    log_scat(renorm_scat(scat(x, Wopg)))));
+database_options.feature_sampling = 8;
 
+database = prepare_database(src, feature_fun, database_options);
 
-
-
-
+[train_set, test_set] = create_partition(src, 0.8);
 
 
 
