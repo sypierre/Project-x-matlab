@@ -57,7 +57,7 @@ plotsignals(X, Y, 1);
 %%
 
 % gtzan_src
-src = gtzan_src('./data/music');
+src = gtzan_src('./data/gtest');
 % prepare_database
 N = 5*2^17;
 T = 8192;
@@ -76,6 +76,21 @@ database_options.feature_sampling = 8;
 database = prepare_database(src, feature_fun, database_options);
 
 [train_set, test_set] = create_partition(src, 0.8);
+
+
+database = svm_calc_kernel(database, 'gaussian');
+
+
+svm_options.kernel_type = 'gaussian';
+svm_options.C = 2.^[0:4:8];
+svm_options.gamma = 2.^[-16:4:-8];
+ 
+[err,C,gamma] = svm_param_search( ...
+    database, train_set, [], svm_options);
+
+    
+
+
 
 
 
