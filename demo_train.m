@@ -64,18 +64,3 @@ dsrc = create_dreemsrc(Y(1:1000));
 database_options.feature_sampling = 1;
 
 dreemdb = prepare_dreemdb(dsrc, featurefun,X(1:1000,:), database_options);
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
