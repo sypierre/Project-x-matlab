@@ -1,5 +1,3 @@
-%% Training and validation
-
 
 clearvars -except X Y N database src;
 close all;
