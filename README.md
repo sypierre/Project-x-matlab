@@ -1,5 +1,6 @@
 # Project-x-matlab
 
+In this project, we try to use the scattering transform to classify time series (EEG recordings).
 
 First step: Denoising (Oussama)
 
